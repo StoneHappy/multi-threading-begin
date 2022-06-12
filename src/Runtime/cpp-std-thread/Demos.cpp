@@ -1,24 +1,31 @@
 #pragma once
 #include <iostream>
 #include <thread>
-using namespace std;
 namespace Demo001
 {
-	void doTask() {
-		for (int i = 0; i < 300; ++i)
-			cout << "B";
+	void DoTask()
+	{
+		for (size_t i=0; i<300; i++)
+		{
+			std::cout << "B";
+		}
 
-		cout << endl;
+		std::cout << std::endl;
 	}
-	int main() {
-		std::thread th(&doTask);
 
-		for (int i = 0; i < 300; ++i)
-			cout << "A";
+	int main()
+	{
+		std::thread th(&DoTask);
 
+		for (size_t i = 0; i < 300; i++)
+		{
+			std::cout << "A";
+		}
+		
 		th.join();
 
-		cout << endl;
+		std::cout << std::endl;
+
 		return 0;
 	}
 }
