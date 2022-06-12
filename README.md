@@ -14,12 +14,14 @@ git clone --recursive https://github.com/StoneHappy/multi-threading-begin.git
 
 mkdir build
 
+cd build
+
 # generate build project
 cmake ..
 ```
 * Step2: open build project
 
-    Open ``multi-theading-begin.sln`` file by ``VS``.
+    Open ``multi-theading-begin.sln`` file in ``build`` dir by ``VS``.
 
 * Step3: set setup project
 
