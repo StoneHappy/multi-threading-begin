@@ -3,6 +3,8 @@
 learn and test multithread with https://github.com/thanhit95/multi-threading
 
 ## how to use it
+
+* Step1: generate build project
 ```bash
 # clone repository and submodule
 
@@ -15,7 +17,14 @@ mkdir build
 # generate build project
 cmake ..
 ```
+* Step2: open build project
 
-Set one of ``Test`` as setup project.
+    Open ``multi-theading-begin.sln`` file by ``VS``.
 
-Run without debug project.
+* Step3: set setup project
+
+    Set one of ``Test`` as setup project.
+
+* Step4: run test program
+
+    Run without debug project.
