@@ -1,5 +1,6 @@
-# my_cpp_empty_project
+# multi-threading-begin
 
+learn and test multithread with https://github.com/thanhit95/multi-threading
 
 ## how to use it
 ```bash
