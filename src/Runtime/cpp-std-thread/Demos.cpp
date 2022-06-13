@@ -62,3 +62,25 @@ namespace Demo01a02
 		return 0;
 	}
 }
+
+namespace Demo01b01
+{
+	class Example {
+	public:
+		void doTask(const std::string& message)
+		{
+			std::cout << message << std::endl;
+		}
+	};
+
+	int main()
+	{
+		Example example;
+
+		std::thread th(&Example::doTask, &example, "Good day");
+
+		th.join();
+
+		return 0;
+	}
+}

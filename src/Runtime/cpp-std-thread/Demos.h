@@ -17,3 +17,8 @@ namespace Demo01a02
 {
 	int main();
 }
+
+namespace Demo01b01
+{
+	int main();
+}
