@@ -403,3 +403,28 @@ namespace Demo09
 		return 0;
 	}
 }
+
+namespace Demo10
+{
+	using system_clock = std::chrono::system_clock;
+	int main()
+	{
+		auto foo = []() {
+			auto tpStart = system_clock::now();
+
+			auto tpEnd = tpStart + std::chrono::seconds(2);
+			do 
+			{
+				std::this_thread::yield();
+			} while (system_clock::now() < tpEnd);
+		};
+
+		auto tpStart = system_clock::to_time_t(system_clock::now());
+
+		foo();
+
+		auto tpEnd = system_clock::to_time_t(system_clock::now());
+		std::cout << "Elapsed time: " << tpEnd - tpStart << "seconds" << std::endl;
+		return 0;
+	}
+}

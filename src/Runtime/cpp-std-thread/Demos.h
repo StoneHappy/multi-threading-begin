@@ -122,3 +122,12 @@ namespace Demo09
 {
 	int main();
 }
+
+
+/*
+THREAD YIELDING
+*/
+namespace Demo10
+{
+	int main();
+}
