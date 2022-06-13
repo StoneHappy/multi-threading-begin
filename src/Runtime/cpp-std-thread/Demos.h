@@ -65,3 +65,9 @@ namespace Demo04a01
 {
 	int main();
 }
+
+// Sleep until
+namespace Demo04a02
+{
+	int main();
+}

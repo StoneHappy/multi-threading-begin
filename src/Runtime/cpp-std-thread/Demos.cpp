@@ -221,3 +221,29 @@ namespace Demo04a01
 		return 0;
 	}
 }
+
+namespace Demo04a02
+{
+	using sysclock = std::chrono::system_clock;
+	int main()
+	{
+		auto tpNow = sysclock::now();
+
+		auto tpWakeUpFoo = tpNow + std::chrono::seconds(7);
+
+		std::time_t timeStamp = sysclock::to_time_t(tpWakeUpFoo);
+		std::ctime(&timeStamp);
+
+		std::cout << "foo will sleep until " << std::ctime(&timeStamp) << std::endl;
+
+		auto doTask = [](const std::string& name, sysclock::time_point tpWakeUp) {
+			std::cout << name << " is sleeping" << std::endl;
+			std::this_thread::sleep_until(tpWakeUp);
+			std::cout << name << " wakes up" << std::endl;
+		};
+
+		std::thread th(doTask, "foo", tpWakeUpFoo);
+		th.join();
+		return 0;
+	}
+}
