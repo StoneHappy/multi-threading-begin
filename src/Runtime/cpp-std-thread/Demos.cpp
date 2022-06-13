@@ -109,3 +109,28 @@ namespace Demo01b02
 		return 0;
 	}
 }
+
+namespace Demo01b03
+{
+	class Example {
+	public:
+		void run() {
+			std::thread th(&Example::doTask, "Good day");
+			th.join();
+		}
+	private:
+		static void doTask(const std::string& message)
+		{
+			std::cout << message << std::endl;
+		}
+	};
+
+	int main()
+	{
+		Example example;
+
+		example.run();
+
+		return 0;
+	}
+}

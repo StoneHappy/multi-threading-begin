@@ -18,14 +18,20 @@ namespace Demo01a02
 	int main();
 }
 
-// using class method I
+// using class method I (class public method)
 namespace Demo01b01
 {
 	int main();
 }
 
-// using class method II
+// using class method II (class private method)
 namespace Demo01b02
+{
+	int main();
+}
+
+// using class method III (class static method, need not pass this pointer)
+namespace Demo01b03
 {
 	int main();
 }
