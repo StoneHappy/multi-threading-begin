@@ -2,6 +2,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <vector>
 
 namespace Demo00
 {
@@ -244,6 +245,32 @@ namespace Demo04a02
 
 		std::thread th(doTask, "foo", tpWakeUpFoo);
 		th.join();
+		return 0;
+	}
+}
+
+namespace Demo06a01
+{
+	constexpr int NUM_THREADS = 5;
+	int main()
+	{
+
+		auto doTask = [](int index) {
+			std::cout << index << std::endl;
+		};
+
+		std::vector<std::thread> lsThread;
+
+		for (size_t i = 0; i < NUM_THREADS; i++)
+		{
+			auto th = std::thread(doTask, i);
+			lsThread.push_back(std::move(th));
+		}
+
+		for (auto&& th : lsThread)
+		{
+			th.join();
+		}
 		return 0;
 	}
 }

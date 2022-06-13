@@ -71,3 +71,10 @@ namespace Demo04a02
 {
 	int main();
 }
+
+
+// thread list
+namespace Demo06a01
+{
+	int main();
+}
