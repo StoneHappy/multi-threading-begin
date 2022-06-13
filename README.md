@@ -10,7 +10,7 @@ learn and test multithread with https://github.com/thanhit95/multi-threading
 
 git clone --recursive https://github.com/StoneHappy/multi-threading-begin.git
 
-# create buid dir
+# create build dir
 
 mkdir build
 
