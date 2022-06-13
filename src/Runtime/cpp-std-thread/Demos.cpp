@@ -382,3 +382,24 @@ namespace Demo08c
 		return 0;
 	}
 }
+
+namespace Demo09
+{
+	int main()
+	{
+		auto foo = [](){
+			std::cout << "foo is starting ..." << std::endl;
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			std::cout << "foo is exiting ..." << std::endl;
+		};
+
+		auto th1 = std::thread(foo);
+
+		th1.detach();
+
+		std::this_thread::sleep_for(std::chrono::seconds(3));
+
+		std::cout << "Main thread is exiting" << std::endl;
+		return 0;
+	}
+}

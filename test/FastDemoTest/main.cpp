@@ -69,3 +69,8 @@ TEST(MultiThreadDemoTest, Demo08c)
 {
 	Demo08c::main();
 }
+
+TEST(MultiThreadDemoTest, Demo09)
+{
+	Demo09::main();
+}

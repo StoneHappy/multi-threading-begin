@@ -112,3 +112,13 @@ namespace Demo08c
 {
 	int main();
 }
+
+/*
+THREAD DETACHING
+
+NOTE: Detaches the thread represented by the object from the calling thread, allowing them to execute independently from each other.
+*/
+namespace Demo09
+{
+	int main();
+}
