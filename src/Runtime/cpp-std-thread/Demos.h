@@ -103,3 +103,12 @@ namespace Demo08b
 {
 	int main();
 }
+
+/*
+GETTING RETURNED VALUES FROM THREADS
+Version C: Using std::future with std::packaged_task
+*/
+namespace Demo08c
+{
+	int main();
+}

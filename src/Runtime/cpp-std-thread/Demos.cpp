@@ -4,6 +4,7 @@
 #include <chrono>
 #include <vector>
 #include <future>
+#include <string>
 
 namespace Demo00
 {
@@ -352,6 +353,30 @@ namespace Demo08b
 
 
 		int result = fut.get();
+		std::cout << result << std::endl;
+		th1.join();
+		return 0;
+	}
+}
+
+namespace Demo08c
+{
+	int main()
+	{
+		auto doubleValue = [](int arg)->std::string {
+			int result = arg * 2;
+
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			return std::to_string(result);
+		};
+
+		auto ptask = std::packaged_task<std::string(int)>(doubleValue);
+		auto fut = ptask.get_future();
+
+		auto th1 = std::thread(std::move(ptask), 2);
+
+
+		std::string result = fut.get();
 		std::cout << result << std::endl;
 		th1.join();
 		return 0;
