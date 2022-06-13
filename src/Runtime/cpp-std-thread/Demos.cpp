@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <thread>
-namespace Demo00_00
+namespace Demo00
 {
 	void DoTask()
 	{
@@ -31,7 +31,7 @@ namespace Demo00_00
 }
 
 
-namespace Demo01_00
+namespace Demo01a01
 {
 	void doTask() {
 		std::cout << "Hello from example thread" << std::endl;
@@ -44,6 +44,20 @@ namespace Demo01_00
 
 		std::cout << "Hello from main thread" << std::endl;
 
+		th.join();
+		return 0;
+	}
+}
+
+namespace Demo01a02
+{
+
+	void doTask(char const* message, int number) {
+		std::cout << message << " " << number << std::endl;
+	}
+
+	int main() {
+		std::thread th(&doTask, "Good day", 19);
 		th.join();
 		return 0;
 	}

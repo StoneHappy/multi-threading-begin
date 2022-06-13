@@ -1,12 +1,17 @@
 #include <gtest/gtest.h>
 #include <cpp-std-thread/Demos.h>
-TEST(MultiThreadDemoTest, Demo00_00)
+TEST(MultiThreadDemoTest, Demo00)
 {
-	Demo00_00::main();
+	Demo00::main();
 }
 
 
-TEST(MultiThreadDemoTest, Demo01_00)
+TEST(MultiThreadDemoTest, Demo01a01)
 {
-	Demo01_00::main();
+	Demo01a01::main();
+}
+
+TEST(MultiThreadDemoTest, Demo01a02)
+{
+	Demo01a02::main();
 }
