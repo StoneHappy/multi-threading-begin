@@ -84,3 +84,12 @@ namespace Demo07a01
 {
 	int main();
 }
+
+/*
+GETTING RETURNED VALUES FROM THREADS
+Version A: Using pointers or references (traditional way)
+*/
+namespace Demo08a01
+{
+	int main();
+}

@@ -284,17 +284,47 @@ namespace Demo07a01
 
 		auto doTask = []() {
 			while (isRunning) {
-				std::cout << "threed " << " running..." << std::endl;
+				std::cout << "thread " << " running..." << std::endl;
 				std::this_thread::sleep_for(std::chrono::seconds(2));
 			}
 
-			std::cout << "threed " << " has been terminated!" << std::endl;
+			std::cout << "thread " << " has been terminated!" << std::endl;
 		};
 		auto th = std::thread(doTask);
 		std::this_thread::sleep_for(std::chrono::seconds(6));
 		isRunning = false;
 		
 		th.join();
+		return 0;
+	}
+}
+
+namespace Demo08a01
+{
+
+	int main()
+	{
+		int result[3];
+		auto doubleValue = [](int arg, int* res) {
+			*res = 2 * arg;
+		};
+
+		auto squareValue = [](int arg, int& res) {
+			res = arg * arg;
+		};
+
+		auto th1 = std::thread(doubleValue, 2, &result[0]);
+		auto th2 = std::thread(squareValue, 3, std::ref(result[1]));
+		auto th3 = std::thread(doubleValue, 4, &result[2]);
+
+		th1.join();
+		th2.join();
+		th3.join();
+
+		for (size_t i = 0; i < 3; i++)
+		{
+			std::cout << result[i] << std::endl;
+		}
 		return 0;
 	}
 }
