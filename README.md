@@ -25,7 +25,7 @@ cmake ..
 
 * Step3: set setup project
 
-    Set one of ``Test`` as setup project.
+    Set one of ``Test`` as start up project.
 
 * Step4: run test program
 
