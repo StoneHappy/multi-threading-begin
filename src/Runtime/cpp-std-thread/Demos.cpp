@@ -3,6 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <vector>
+#include <future>
 
 namespace Demo00
 {
@@ -299,7 +300,7 @@ namespace Demo07a01
 	}
 }
 
-namespace Demo08a01
+namespace Demo08a
 {
 
 	int main()
@@ -325,6 +326,34 @@ namespace Demo08a01
 		{
 			std::cout << result[i] << std::endl;
 		}
+		return 0;
+	}
+}
+
+
+namespace Demo08b
+{
+
+	int main()
+	{
+		auto doubleValue = [](int arg, std::promise<int>& prom) {
+			int result = arg * 2;
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+
+			prom.set_value(result);
+
+			std::this_thread::sleep_for(std::chrono::seconds(2));
+			std::cout << "This thread is exiting" << std::endl;
+		};
+		
+		auto prom = std::promise<int>();
+		auto fut = prom.get_future();
+		auto th1 = std::thread(doubleValue, 2, std::ref(prom));
+
+
+		int result = fut.get();
+		std::cout << result << std::endl;
+		th1.join();
 		return 0;
 	}
 }

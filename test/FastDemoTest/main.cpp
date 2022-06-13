@@ -55,7 +55,12 @@ TEST(MultiThreadDemoTest, Demo06a01)
 	Demo06a01::main();
 }
 
-TEST(MultiThreadDemoTest, Demo08a01)
+TEST(MultiThreadDemoTest, Demo08a)
 {
-	Demo08a01::main();
+	Demo08a::main();
+}
+
+TEST(MultiThreadDemoTest, Demo08b)
+{
+	Demo08b::main();
 }

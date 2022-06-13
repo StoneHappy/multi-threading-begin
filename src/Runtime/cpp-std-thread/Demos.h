@@ -89,7 +89,17 @@ namespace Demo07a01
 GETTING RETURNED VALUES FROM THREADS
 Version A: Using pointers or references (traditional way)
 */
-namespace Demo08a01
+namespace Demo08a
+{
+	int main();
+}
+
+
+/*
+GETTING RETURNED VALUES FROM THREADS
+Version B: Using std::future with the promise
+*/
+namespace Demo08b
 {
 	int main();
 }
