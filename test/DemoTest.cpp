@@ -29,3 +29,8 @@ TEST(MultiThreadDemoTest, Demo01b03)
 {
 	Demo01b03::main();
 }
+
+TEST(MultiThreadDemoTest, Demo01b04)
+{
+	Demo01b04::main();
+}

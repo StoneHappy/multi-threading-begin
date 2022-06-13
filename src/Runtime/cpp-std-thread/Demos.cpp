@@ -134,3 +134,22 @@ namespace Demo01b03
 		return 0;
 	}
 }
+
+namespace Demo01b04
+{
+	class Example {
+	public:
+		void operator()(const std::string& message) {
+			std::cout << message << std::endl;
+		}
+	};
+
+	int main()
+	{
+		Example example;
+		std::thread th(example, "Good day");
+
+		th.join();
+		return 0;
+	}
+}

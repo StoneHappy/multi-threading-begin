@@ -35,3 +35,9 @@ namespace Demo01b03
 {
 	int main();
 }
+
+// using class method IV (using functor)
+namespace Demo01b04
+{
+	int main();
+}
