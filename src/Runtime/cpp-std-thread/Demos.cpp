@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <thread>
+#include <chrono>
+
 namespace Demo00
 {
 	void DoTask()
@@ -200,6 +202,22 @@ namespace Demo03a01
 		th.join();
 
 		std::cout << "Good bye!" << std::endl;
+		return 0;
+	}
+}
+
+namespace Demo04a01
+{
+	int main()
+	{
+		auto doTask = [](const std::string& name) {
+			std::cout << name << " is sleeping" << std::endl;
+			std::this_thread::sleep_for(std::chrono::seconds(3));
+			std::cout << name << " wakes up" << std::endl;
+		};
+
+		std::thread th(doTask, "foo");
+		th.join();
 		return 0;
 	}
 }

@@ -59,3 +59,9 @@ namespace Demo03a01
 {
 	int main();
 }
+
+// Sleep for a specific duration
+namespace Demo04a01
+{
+	int main();
+}
