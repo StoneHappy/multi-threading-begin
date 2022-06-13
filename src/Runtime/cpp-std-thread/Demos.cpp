@@ -274,3 +274,27 @@ namespace Demo06a01
 		return 0;
 	}
 }
+
+namespace Demo07a01
+{
+	volatile bool isRunning = true;
+
+	int main()
+	{
+
+		auto doTask = []() {
+			while (isRunning) {
+				std::cout << "threed " << " running..." << std::endl;
+				std::this_thread::sleep_for(std::chrono::seconds(2));
+			}
+
+			std::cout << "threed " << " has been terminated!" << std::endl;
+		};
+		auto th = std::thread(doTask);
+		std::this_thread::sleep_for(std::chrono::seconds(6));
+		isRunning = false;
+		
+		th.join();
+		return 0;
+	}
+}

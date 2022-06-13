@@ -78,3 +78,9 @@ namespace Demo06a01
 {
 	int main();
 }
+
+// terminate thread
+namespace Demo07a01
+{
+	int main();
+}
