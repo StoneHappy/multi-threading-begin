@@ -41,3 +41,21 @@ namespace Demo01b04
 {
 	int main();
 }
+
+// using lambdas
+namespace Demo01c01
+{
+	int main();
+}
+
+// do a heavy task
+namespace Demo02a01
+{
+	int main();
+}
+
+// pass references variable to thread
+namespace Demo03a01
+{
+	int main();
+}

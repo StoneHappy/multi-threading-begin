@@ -153,3 +153,53 @@ namespace Demo01b04
 		return 0;
 	}
 }
+
+namespace Demo01c01
+{
+	int main()
+	{
+		auto doTask = [](const std::string& message) {
+			std::cout << message << std::endl;
+		};
+		std::thread th(doTask, "Good day");
+
+		th.join();
+		return 0;
+	}
+}
+
+namespace Demo02a01
+{
+	int main()
+	{
+		auto doTask = []() {
+
+			for (size_t i = 0; i < 2000000000; i++);
+			
+			std::cout << "Done!" << std::endl;
+		};
+		std::thread th(doTask);
+		th.join();
+
+		std::cout << "Good bye!" << std::endl;
+		return 0;
+	}
+}
+
+namespace Demo03a01
+{
+	int main()
+	{
+		auto doTask = [](std::string& message) {
+			std::cout << message << std::endl;
+		};
+
+		std::string a = "Good day!";
+
+		std::thread th(doTask, std::ref(a));
+		th.join();
+
+		std::cout << "Good bye!" << std::endl;
+		return 0;
+	}
+}
