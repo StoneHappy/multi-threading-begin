@@ -131,3 +131,15 @@ namespace Demo10
 {
 	int main();
 }
+
+
+/*
+EXECUTOR SERVICES AND THREAD POOLS
+Executor services in C++ std threading are not supported by default.
+So, I use mylib::ExecService for this demonstration.
+*/
+
+namespace Demo11a
+{
+	int main();
+}

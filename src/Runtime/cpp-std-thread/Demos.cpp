@@ -6,6 +6,8 @@
 #include <future>
 #include <string>
 
+#include "MyLib.h"
+
 namespace Demo00
 {
 	void DoTask()
@@ -425,6 +427,32 @@ namespace Demo10
 
 		auto tpEnd = system_clock::to_time_t(system_clock::now());
 		std::cout << "Elapsed time: " << tpEnd - tpStart << "seconds" << std::endl;
+		return 0;
+	}
+}
+
+
+namespace Demo11a
+{
+	
+	int main()
+	{
+		auto service = MyLib::ExecService(3);
+
+		service.submit([&]() {
+			std::cout << "hello world1" << std::endl;
+			});
+
+		service.submit([&]() {
+			std::cout << "hello world2" << std::endl;
+			});
+
+		service.submit([&]() {
+			std::cout << "hello world3" << std::endl;
+			});
+
+		service.waitTaskDone();
+		service.shutdown();
 		return 0;
 	}
 }

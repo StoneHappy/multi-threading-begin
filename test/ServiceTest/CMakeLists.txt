@@ -1,4 +1,4 @@
-set(TARGET_NAME ServiceTest)
+set(TARGET_NAME SleepDemoTest)
 # just for qt
 # set(CMAKE_AUTOUIC ON)
 # set(CMAKE_AUTOMOC ON)

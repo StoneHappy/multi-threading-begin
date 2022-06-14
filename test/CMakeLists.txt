@@ -1,2 +1,3 @@
 add_subdirectory(FastDemoTest)
 add_subdirectory(SleepDemoTest)
+add_subdirectory(ServiceTest)
