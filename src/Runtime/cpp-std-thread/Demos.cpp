@@ -5,6 +5,7 @@
 #include <vector>
 #include <future>
 #include <string>
+#include <numeric>
 
 #include "MyLib.h"
 
@@ -477,6 +478,96 @@ namespace Demo11b
 		service.shutdown();
 
 		std::cout << "all thread shutdown!" << std::endl;
+		return 0;
+	}
+}
+
+namespace Demo12a
+{
+	void doTask(int index) {
+		std::this_thread::sleep_for(std::chrono::seconds(1));
+		std::cout << index << std::endl;
+	}
+
+
+
+	int main() {
+		constexpr int NUM_THREADS = 4;
+		std::vector<std::thread> lstTh;
+
+		for (int i = 0; i < NUM_THREADS; ++i) {
+			lstTh.push_back(
+				std::thread(&doTask, i)
+			);
+		}
+
+		for (auto&& th : lstTh) {
+			th.join();
+		}
+
+		std::cout << std::endl;
+		return 0;
+	}
+}
+
+namespace Demo12b01
+{
+	int getResult(int N) {
+		std::vector<bool> a;
+		a.resize(N + 1, false);
+
+		for (int i = 1; i <= N; ++i)
+			if (0 == i % 2 || 0 == i % 3)
+				a[i] = true;
+
+		// result = sum of a (i.e. counting number of true values in a)
+		int result = std::accumulate(a.begin(), a.end(), 0);
+		return result;
+	}
+
+
+
+	int main() {
+		constexpr int N = 8;
+
+		int result = getResult(N);
+
+		std::cout << "Number of integers that are divisible by 2 or 3 is: " << result << std::endl;
+		return 0;
+	}
+}
+
+namespace Demo12b02
+{
+	void markDiv2(std::vector<bool>& a, int N) {
+		for (int i = 2; i <= N; i += 2)
+			a[i] = true;
+	}
+
+
+
+	void markDiv3(std::vector<bool>& a, int N) {
+		for (int i = 3; i <= N; i += 3)
+			a[i] = true;
+	}
+
+
+
+	int main() {
+		constexpr int N = 8;
+
+		std::vector<bool> a;
+		a.resize(N + 1, false);
+
+		auto thDiv2 = std::thread(&markDiv2, std::ref(a), N);
+		auto thDiv3 = std::thread(&markDiv3, std::ref(a), N);
+		thDiv2.join();
+		thDiv3.join();
+
+		// result = sum of a (i.e. counting numbers of true values in a)
+		int result = std::accumulate(a.begin(), a.end(), 0);
+
+		std::cout << "Number of integers that are divisible by 2 or 3 is: " << result << std::endl;
 		return 0;
 	}
 }

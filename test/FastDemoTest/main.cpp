@@ -80,3 +80,18 @@ TEST(MultiThreadDemoTest, Demo10)
 {
 	Demo10::main();
 }
+
+TEST(MultiThreadDemoTest, Demo12a)
+{
+	Demo12a::main();
+}
+
+TEST(MultiThreadDemoTest, Demo12b01)
+{
+	Demo12b01::main();
+}
+
+TEST(MultiThreadDemoTest, Demo12b02)
+{
+	Demo12b02::main();
+}
