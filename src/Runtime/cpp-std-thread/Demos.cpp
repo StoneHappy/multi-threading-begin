@@ -434,7 +434,6 @@ namespace Demo10
 
 namespace Demo11a
 {
-	
 	int main()
 	{
 		auto service = MyLib::ExecService(3);
@@ -453,6 +452,31 @@ namespace Demo11a
 
 		service.waitTaskDone();
 		service.shutdown();
+		return 0;
+	}
+}
+
+namespace Demo11b
+{
+	int main()
+	{
+		constexpr int num_thread = 3;
+		constexpr int num_task = 10;
+		auto service = MyLib::ExecService(num_thread);
+
+		for (int i = 0; i < num_task; i++)
+		{
+			service.submit([=]() {
+				std::cout << "hello world " << i << std::endl;
+				});
+		}
+
+		std::cout << "all task submit!" << std::endl;
+
+		service.waitTaskDone();
+		service.shutdown();
+
+		std::cout << "all thread shutdown!" << std::endl;
 		return 0;
 	}
 }

@@ -26,7 +26,7 @@ namespace MyLib
 
 			if (m_TaskPending.empty())
 			{
-				uniquelk lkRunning(m_MutexTaskPending);
+				uniquelk lkRunning(m_MutexTaskRunning);
 
 				m_ConTaskRunning.wait(lkRunning);
 

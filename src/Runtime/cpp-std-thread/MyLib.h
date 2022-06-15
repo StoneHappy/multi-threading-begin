@@ -28,6 +28,7 @@ namespace MyLib
 		std::condition_variable m_ConTaskPending;
 		std::condition_variable m_ConTaskRunning;
 		std::mutex m_MutexTaskPending;
+		std::mutex m_MutexTaskRunning;
 
 		int m_NumThread;
 		bool m_ForceThreadShutdown = false;
